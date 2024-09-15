@@ -7,4 +7,9 @@
     <RootNamespace>MVC_Demo</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\CSS\" />
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>

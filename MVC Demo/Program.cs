@@ -5,12 +5,16 @@ namespace mvcdemo
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddControllers();
+
+            builder.Services.AddControllersWithViews();
+
             var app = builder.Build();
 
             //app.MapGet("/", () => "Hello Dev!");
 
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             #region Parameters with Routing
 
@@ -52,11 +56,11 @@ namespace mvcdemo
             #endregion
 
             #region Action Result
-            //app.MapControllerRoute(
-            //    name: "default",
-            //    pattern:"/{Controller=Home}/{Action=Index}",
-            //    defaults: new { Controller = "Home" , Action = "Index" }
-            //    );
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "/{Controller=Home}/{Action=Index}",
+                defaults: new { Controller = "Home", Action = "Index" }
+                );
             //app.MapControllerRoute(
             //    name: "default",
             //    pattern: "/{Controller=Home}/{Action=AboutUs}",
